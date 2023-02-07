@@ -7,7 +7,7 @@ const BookCard = ({ book }) => {
 
   return (
     <Card key={book.id}>
-      <CardImg src={book.img} />
+      <CardImg src={book.img} className="imgContent" />
       <CardBody>
         <CardTitle>{book.title}</CardTitle>
         <CardSubtitle>{book.author}</CardSubtitle>

@@ -7,7 +7,7 @@ export const useCart = () => useContext(CartContext);
 
 const CartProvider = ({ children }) => {
   const initialState = {
-    cart: [],
+    cart: JSON.parse(localStorage.getItem("cart")) || [],
   };
 
   const [state, dispatch] = useReducer(CartReducer, initialState);
@@ -32,6 +32,7 @@ const CartProvider = ({ children }) => {
       type: CartActionTypes.UPDATE_CART,
       payload: updatedCart,
     });
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
   };
 
   const clearCart = () => {
@@ -39,6 +40,7 @@ const CartProvider = ({ children }) => {
       payload: [],
       type: CartActionTypes.UPDATE_CART,
     });
+    localStorage.removeItem("cart");
   };
 
   const removeProduct = (book) => {
@@ -63,6 +65,7 @@ const CartProvider = ({ children }) => {
       payload: updatedCart,
       type: CartActionTypes.UPDATE_CART,
     });
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
   };
 
   return (

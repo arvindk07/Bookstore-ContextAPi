@@ -13,9 +13,9 @@ const App = () => {
     <Suspense fallback={<Spinner>Loading...</Spinner>}>
       <CartProvider>
         <Router>
-          <div className="appWrapper d-flex flex-column">
+          <div className="appWrapper d-flex flex-column ">
             <AppHeader />
-            <Container className="flex-grow-1">
+            <Container className="flex-grow-1 py-5">
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/your-cart" element={<Cart />} />
